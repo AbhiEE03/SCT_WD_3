@@ -1,0 +1,165 @@
+:root {
+	--primary: #6c5ce7;
+	--secondary: #a29bfe;
+	--dark-bg: #1e1e2e;
+	--card-bg: #2d2d44;
+	--text: #ffffff;
+	--success: #00b894;
+	--error: #d63031;
+}
+
+body {
+	font-family: "Segoe UI", sans-serif;
+	background-color: var(--dark-bg);
+	color: var(--text);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+}
+
+.app-container {
+	background: var(--card-bg);
+	width: 90%;
+	max-width: 500px;
+	padding: 2rem;
+	border-radius: 15px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+
+/* Screen Visibility */
+.screen {
+	display: none;
+	animation: fadeIn 0.4s;
+}
+.active {
+	display: block;
+}
+.hidden {
+	display: none;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Home Screen */
+.category-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	margin: 20px 0;
+}
+
+button {
+	cursor: pointer;
+	border: none;
+	padding: 12px;
+	border-radius: 8px;
+	font-size: 1rem;
+	transition: 0.2s;
+}
+
+.cat-btn {
+	background: #3e3e55;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 5px;
+}
+.cat-btn:hover {
+	background: var(--primary);
+}
+
+.leaderboard-btn,
+#save-btn {
+	width: 100%;
+	background: var(--primary);
+	color: white;
+	margin-top: 10px;
+}
+
+.secondary-btn {
+	background: transparent;
+	border: 1px solid var(--secondary);
+	color: var(--secondary);
+	margin-top: 10px;
+	width: 100%;
+}
+
+/* Quiz Screen */
+.quiz-header {
+	display: flex;
+	justify-content: space-between;
+	color: #a0a0a0;
+	font-size: 0.9rem;
+	margin-bottom: 10px;
+}
+
+.progress-bar {
+	width: 100%;
+	height: 6px;
+	background: #3e3e55;
+	border-radius: 3px;
+	margin-bottom: 20px;
+}
+
+#progress-fill {
+	height: 100%;
+	background: var(--success);
+	width: 0%;
+	transition: width 0.3s;
+}
+
+.options-list {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.option-btn {
+	background: #3e3e55;
+	text-align: left;
+	color: white;
+}
+
+.option-btn:hover {
+	background: #4b4b66;
+}
+.option-btn.correct {
+	background: var(--success) !important;
+	border-color: var(--success);
+}
+.option-btn.wrong {
+	background: var(--error) !important;
+	border-color: var(--error);
+}
+
+/* Leaderboard */
+#high-scores-list {
+	list-style: none;
+	padding: 0;
+	text-align: left;
+}
+.score-item {
+	background: #3e3e55;
+	padding: 10px;
+	margin-bottom: 5px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+.score-badge {
+	font-weight: bold;
+	color: var(--primary);
+}

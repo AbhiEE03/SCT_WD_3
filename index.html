@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SkillCraft Quiz Arena</title>
+		<link rel="stylesheet" href="style.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+		/>
+	</head>
+	<body>
+		<div class="app-container">
+			<div id="home-screen" class="screen active">
+				<h1><i class="fas fa-brain"></i> SkillCraft Quiz</h1>
+				<p>Select a category to begin:</p>
+
+				<div class="category-grid">
+					<button class="cat-btn" onclick="startQuiz('technical')">
+						<i class="fas fa-laptop-code"></i> Technical
+					</button>
+					<button class="cat-btn" onclick="startQuiz('space')">
+						<i class="fas fa-rocket"></i> Space
+					</button>
+					<button class="cat-btn" onclick="startQuiz('movies')">
+						<i class="fas fa-film"></i> Movies
+					</button>
+					<button class="cat-btn" onclick="startQuiz('geo')">
+						<i class="fas fa-globe-americas"></i> Geo-Politics
+					</button>
+				</div>
+
+				<button class="leaderboard-btn" onclick="showLeaderboard()">
+					<i class="fas fa-trophy"></i> View Leaderboard
+				</button>
+			</div>
+
+			<div id="quiz-screen" class="screen hidden">
+				<div class="quiz-header">
+					<span id="category-title">Category</span>
+					<span id="question-count">1/10</span>
+				</div>
+				<div class="progress-bar"><div id="progress-fill"></div></div>
+
+				<h2 id="question-text">Question goes here?</h2>
+
+				<div id="options-container" class="options-list"></div>
+			</div>
+
+			<div id="result-screen" class="screen hidden">
+				<i class="fas fa-medal result-icon"></i>
+				<h2>Quiz Completed!</h2>
+				<p>Your Score: <span id="final-score">0</span> / 10</p>
+
+				<input
+					type="text"
+					id="username"
+					placeholder="Enter your name"
+					maxlength="15"
+				/>
+				<button id="save-btn" onclick="saveScore()">Save Score & Home</button>
+				<button class="secondary-btn" onclick="goHome()">
+					Play Again Without Saving
+				</button>
+			</div>
+
+			<div id="leaderboard-screen" class="screen hidden">
+				<h2><i class="fas fa-crown"></i> Top Players</h2>
+				<ul id="high-scores-list"></ul>
+				<button class="secondary-btn" onclick="goHome()">Back to Home</button>
+			</div>
+		</div>
+
+		<script src="script.js"></script>
+	</body>
+</html>
